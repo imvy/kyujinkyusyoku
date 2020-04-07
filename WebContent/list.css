@@ -1,0 +1,18 @@
+@charset "UTF-8";
+table.dataTable tbody td {
+	vertical-align: middle!important;
+}
+.th_upd_rmv {
+	text-align:center;
+}
+.range_search {
+	margin:1rem 0;
+}
+.search_width{
+	display: inline-block;
+	width: 6em;
+}
+.between_width{
+	display: inline-block;
+	width: 1em;
+}

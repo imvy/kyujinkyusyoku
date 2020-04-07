@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="kyujinkyusyoku_kyusyoku" pageWidth="2005" pageHeight="1927" columnWidth="1535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5a603ca2-1403-4d90-80c0-ceb3b0b3c231">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="local_kyujinkyusyoku_Data_Adapter "/>
+	<queryString language="SQL">
+		<![CDATA[SELECT ksi.kyusyoku_id, ks.kyusyoku_name, ks.kyusyoku_zyusyo, ks.kyusyoku_seinengappi, ksi.kyusyoku_kibousyokusyu, ksi.kyusyoku_uketukenengappi, ksi.kyusyoku_yuukoukikan_start, ksi.kyusyoku_yuukoukikan_end, ksi.syoukai_day, kji.kyujin_id, kj.kaisya_name, ksi.saiyou_husaiyou, ksi.saiyou_day, ksi.roudoukeiyaku, DATE_ADD(DATE_ADD(ksi.saiyou_day, INTERVAL + 2 YEAR),INTERVAL - 1 DAY) AS tensyokukansyou_end, ksi.risyokujoukyou, ksi.henreikin, ksi.kyusyoku_joukyou, kd.dept_id, kj.kyujinkaisya_id FROM  kyusyokusya AS ks LEFT JOIN  kyusyoku_info AS ksi ON ks.kyusyokusya_id = ksi.kyusyokusya_id LEFT JOIN kyujin_info AS kji ON ksi.kyujin_id = kji.kyujin_id LEFT JOIN kyujin_dept AS kd ON kji.dept_id = kd.dept_id LEFT JOIN kyujinkaisya AS kj ON kd.kyujinkaisya_id = kj.kyujinkaisya_id WHERE  ksi.kyusyoku_view = 1 AND NOT kji.kyujin_id = 0 AND NOT kji.kyujin_id = 1 AND NOT ksi.saiyou_husaiyou = "未紹介" AND NOT ksi.saiyou_husaiyou = "紹介中" ORDER BY ksi.kyusyoku_id ASC;]]>
+	</queryString>
+	<field name="kyusyoku_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="kyusyoku_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="kyusyoku_info"/>
+	</field>
+	<field name="kyusyoku_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="kyusyoku_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="kyusyokusya"/>
+	</field>
+	<field name="kyusyoku_zyusyo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="kyusyoku_zyusyo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="kyusyokusya"/>
+	</field>
+	<field name="kyusyoku_seinengappi" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="kyusyoku_seinengappi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="kyusyokusya"/>
+	</field>
+	<field name="kyusyoku_kibousyokusyu" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="kyusyoku_kibousyokusyu"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="kyusyoku_info"/>
+	</field>
+	<field name="kyusyoku_uketukenengappi" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="kyusyoku_uketukenengappi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="kyusyoku_info"/>
+	</field>
+	<field name="kyusyoku_yuukoukikan_start" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="kyusyoku_yuukoukikan_start"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="kyusyoku_info"/>
+	</field>
+	<field name="kyusyoku_yuukoukikan_end" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="kyusyoku_yuukoukikan_end"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="kyusyoku_info"/>
+	</field>
+	<field name="syoukai_day" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="syoukai_day"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="kyusyoku_info"/>
+	</field>
+	<field name="kyujin_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="kyujin_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="kyusyoku_info"/>
+	</field>
+	<field name="kaisya_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="kaisya_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="kyujinkaisya"/>
+	</field>
+	<field name="saiyou_husaiyou" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="saiyou_husaiyou"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="kyusyoku_info"/>
+	</field>
+	<field name="saiyou_day" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="saiyou_day"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="kyusyoku_info"/>
+	</field>
+	<field name="roudoukeiyaku" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="roudoukeiyaku"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="kyusyoku_info"/>
+	</field>
+	<field name="tensyokukansyou_end" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="tensyokukansyou_end"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="kyusyoku_info"/>
+	</field>
+	<field name="risyokujoukyou" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="risyokujoukyou"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="kyusyoku_info"/>
+	</field>
+	<field name="henreikin" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="henreikin"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="kyusyoku_info"/>
+	</field>
+	<field name="kyusyoku_joukyou" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="kyusyoku_joukyou"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="kyusyoku_info"/>
+	</field>
+	<background>
+		<band height="27"/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="1998" height="92" backcolor="#006699" uuid="0e8a4b04-125a-4c80-a1de-be7360162496"/>
+				<staticText>
+					<reportElement x="39" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="dbf518f6-ea88-446c-9834-b2f32dba0af6"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="IPAゴシック" size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[求職管理簿]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1758" y="62" width="180" height="20" forecolor="#FFFFFF" uuid="04f978b2-010d-4db0-8cb7-621ea7382830"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="IPAゴシック" size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[イノフェックス株式会社]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="93">
+			<line>
+				<reportElement x="-20" y="89" width="1999" height="1" forecolor="#666666" uuid="15ba4e31-6fd7-4909-8f2f-6ebd664ea27a"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="2" width="396" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="e9fccc41-778d-43a9-a310-3b77243a2800">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0f8fc03e-eda4-4385-a632-99cd1818a02c"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[求職番号]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="22" width="396" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="1f447a5d-04ef-4377-b011-e6c62191b45b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d1c69259-5625-48d2-8fe6-1a4a9169ff07"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[求職者氏名]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="62" width="396" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="0854b684-8853-46cb-9e95-596691655a91">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a44ed0af-b615-4621-a53f-37b351ef6808"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[住所]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="42" width="396" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="a62f84d9-6c66-40eb-84e7-971ec6a81b46">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3507a206-b9fd-42d5-b094-84e804506a6f"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[生年月日]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="396" y="2" width="200" height="79" forecolor="#006699" backcolor="#E6E6E6" uuid="bef45360-6af6-4839-9339-b2658feda347">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7f43b3f4-0b9b-4a58-8813-358289f1606d"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[求職希望職種]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="596" y="2" width="218" height="41" forecolor="#006699" backcolor="#E6E6E6" uuid="a1ff11e5-5171-496f-8efa-0ce7f6dace68">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bef02cca-2328-45e2-a163-b47270267301"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[受付年月日]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="596" y="43" width="218" height="38" forecolor="#006699" backcolor="#E6E6E6" uuid="275590d5-fc04-450f-bdd9-b30bc85499bc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7b18a524-3bd0-43d0-9c45-feb58feaeee5"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[有効期間]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="814" y="2" width="100" height="79" forecolor="#006699" backcolor="#E6E6E6" uuid="c5a9de97-91a1-4eaf-b5d1-9c967a1c8151">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5d72656e-dd73-4167-8022-c5da99d79e31"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[紹介年月日]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="914" y="2" width="200" height="41" forecolor="#006699" backcolor="#E6E6E6" uuid="9872c4cd-ebcb-4f99-9825-591f14592b2b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b533ab1d-6ecb-4641-9171-7ac72f3676b4"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[求人受理番号]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="914" y="43" width="200" height="38" forecolor="#006699" backcolor="#E6E6E6" uuid="1b3cf39b-e97e-4f07-80d2-76279b057e22">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="142f5eda-b636-4b80-a919-f9f7956ea699"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[求人事業所名称]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="1114" y="2" width="100" height="79" forecolor="#006699" backcolor="#E6E6E6" uuid="a17f2564-6cd4-4669-b9b4-15ac49e445bb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="48a8d565-1ca6-4c79-990f-38c4e6de9981"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[採用・不採用]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="1214" y="2" width="100" height="79" forecolor="#006699" backcolor="#E6E6E6" uuid="a3e7a106-4046-46de-8a58-4abdea23d0fc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2447a5af-aa03-4e8a-8714-bfaa4dbe9881"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[採用年月日]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="1314" y="2" width="215" height="41" forecolor="#006699" backcolor="#E6E6E6" uuid="4c384eff-c294-4aa9-94c3-70ef3072eb24">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f18b32dc-0dba-4aa2-b26a-70f745ed3867"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[労働契約]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="1314" y="43" width="215" height="38" forecolor="#006699" backcolor="#E6E6E6" uuid="b847e99d-f916-462d-855a-5bc6a9b3b396">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5936dd18-6cbc-4a9e-8ba8-4a280ced2309"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[転職勧奨期間]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="1529" y="2" width="200" height="79" forecolor="#006699" backcolor="#E6E6E6" uuid="105c3df5-e2b7-4b13-b02e-f7a0583d7cee">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2acadbc2-ab9b-4b0e-9a56-7f95c49909cf"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[離職状況]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="1729" y="2" width="50" height="79" forecolor="#006699" backcolor="#E6E6E6" uuid="fd0bf219-6425-4a0e-99ed-1808f46a9cbe">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4e6502ce-346a-4ecf-a9db-5a4b6f0301ab"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[返戻金]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="1779" y="2" width="184" height="79" forecolor="#006699" backcolor="#E6E6E6" uuid="e5adfbe6-8277-459e-a100-50149a9e9fbb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fb752128-5bc2-4d83-8fd1-79ce35d2bfb4"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[備考]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="110">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="10" y="2" width="380" height="19" uuid="574b466d-cc84-4e93-908e-0f1e297cb6e7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0f8fc03e-eda4-4385-a632-99cd1818a02c"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kyusyoku_id}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="10" y="24" width="380" height="21" uuid="f99abebc-43ee-47d6-8bee-6ba846be40f5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d1c69259-5625-48d2-8fe6-1a4a9169ff07"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kyusyoku_name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="10" y="72" width="380" height="20" uuid="f0dada5b-34e7-4760-aaab-b0095ac4bd4b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a44ed0af-b615-4621-a53f-37b351ef6808"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kyusyoku_zyusyo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="2" y="45" width="387" height="23" uuid="8a2f7789-feec-467c-8459-ee40abcf2b6a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3507a206-b9fd-42d5-b094-84e804506a6f"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("yyyy/MM/dd").format($F{kyusyoku_seinengappi})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="398" y="4" width="197" height="90" uuid="c1adc22f-c1a7-4fb4-bf96-529bfeeb754e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7f43b3f4-0b9b-4a58-8813-358289f1606d"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kyusyoku_kibousyokusyu}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="599" y="8" width="214" height="37" uuid="4f00edde-959a-402e-b3bf-d59ab001a997">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bef02cca-2328-45e2-a163-b47270267301"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("yyyy/MM/dd").format($F{kyusyoku_uketukenengappi})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="600" y="51" width="90" height="34" uuid="ac74adf6-4f61-4740-9991-45126d61352f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7b18a524-3bd0-43d0-9c45-feb58feaeee5"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("yyyy/MM/dd").format($F{kyusyoku_yuukoukikan_start})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="724" y="49" width="88" height="36" uuid="b19c32a2-aeb7-479e-b8ac-63a68db4e493">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="675efb06-9aca-42f1-b5c9-81be60128a5c"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("yyyy/MM/dd").format($F{kyusyoku_yuukoukikan_end})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="696" y="57" width="20" height="21" uuid="41cad28f-dd24-4fbb-9cc0-d7d9ef83680d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[~]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="824" y="8" width="90" height="77" uuid="46cd65af-9079-4cb5-9855-9457f68cf129">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5d72656e-dd73-4167-8022-c5da99d79e31"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("yyyy/MM/dd").format($F{syoukai_day})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="920" y="11" width="190" height="34" uuid="a7460a9d-4705-4a02-8073-c5fc503afbfd">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b533ab1d-6ecb-4641-9171-7ac72f3676b4"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kyujin_id}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="919" y="51" width="192" height="34" uuid="e531b786-c772-4cb9-81b7-da6308587d69">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="142f5eda-b636-4b80-a919-f9f7956ea699"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kaisya_name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="1129" y="11" width="70" height="75" uuid="7b1c28f2-fe0c-4cba-9fad-f4f32eecec8c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="48a8d565-1ca6-4c79-990f-38c4e6de9981"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{saiyou_husaiyou}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="1219" y="11" width="91" height="74" uuid="3d539e07-d85b-4752-a355-2caa81d5138c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2447a5af-aa03-4e8a-8714-bfaa4dbe9881"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("yyyy/MM/dd").format($F{saiyou_day})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="1320" y="11" width="190" height="34" uuid="5e2c6ff2-5092-4f12-88a5-bc0cfa7c7983">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f18b32dc-0dba-4aa2-b26a-70f745ed3867"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{roudoukeiyaku}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="1320" y="51" width="87" height="34" uuid="c13d9a86-ebdc-45bf-8f69-789de4a8368f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2447a5af-aa03-4e8a-8714-bfaa4dbe9881"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("yyyy/MM/dd").format($F{saiyou_day})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1409" y="57" width="20" height="21" uuid="f8509aa3-3b94-455b-86bf-d9929ab8c311"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[~]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="1438" y="51" width="85" height="34" uuid="28697eb2-c569-4861-8c79-015db17d370c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5936dd18-6cbc-4a9e-8ba8-4a280ced2309"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("yyyy/MM/dd").format($F{tensyokukansyou_end})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="1535" y="11" width="188" height="74" uuid="d783ea58-59fc-4ed0-82e7-eeb41793e71c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2acadbc2-ab9b-4b0e-9a56-7f95c49909cf"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{risyokujoukyou}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="1740" y="11" width="32" height="74" uuid="938b2345-77a8-4181-9486-07fddf33a50d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4e6502ce-346a-4ecf-a9db-5a4b6f0301ab"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{henreikin}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="1795" y="11" width="160" height="75" uuid="d8c91959-8608-4b56-93fc-8bafc53802db">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fb752128-5bc2-4d83-8fd1-79ce35d2bfb4"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kyusyoku_joukyou}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="105" width="1960" height="1" uuid="ae0fc273-6037-4e2e-9190-e7c9602e4520">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="30">
+			<textField>
+				<reportElement mode="Opaque" x="-2" y="5" width="1922" height="15" backcolor="#E6E6E6" uuid="d48ff8d3-c6fb-4534-b4fb-7c2c1112cdc3"/>
+				<textElement textAlignment="Right">
+					<font fontName="IPAゴシック"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="-3" y="7" width="100" height="14" uuid="f4befc37-1c9f-42b0-9171-2aede4c726d9"/>
+				<textElement>
+					<font fontName="IPAゴシック"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="1920" y="5" width="40" height="14" backcolor="#E6E6E6" uuid="6b8d65a7-6f86-487c-85a7-7c67f7b2edb9"/>
+				<textElement>
+					<font fontName="IPAゴシック"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

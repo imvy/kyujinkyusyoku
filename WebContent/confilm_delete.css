@@ -1,0 +1,9 @@
+@charset "UTF-8";
+  .li_width {
+		display: inline-block;
+		width: 10em;
+	}
+  .between_width{
+	  display: inline-block;
+	  width: 1em;
+  }

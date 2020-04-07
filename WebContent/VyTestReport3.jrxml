@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="VyTestReport2" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="58173021-431c-4e78-866b-e1c5bd67fd3d">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (3)"/>
+	<subDataset name="Dataset1" uuid="9fd877af-f6cb-4545-b384-cc327c9ffd24">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (3)"/>
+		<queryString language="SQL">
+			<![CDATA[select * from user_info]]>
+		</queryString>
+		<field name="id" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="id"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="user_info"/>
+		</field>
+		<field name="pass" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="pass"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="user_info"/>
+		</field>
+		<field name="name" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="name"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="user_info"/>
+		</field>
+		<group name="id">
+			<groupExpression><![CDATA[$F{id}]]></groupExpression>
+		</group>
+		<group name="pass">
+			<groupExpression><![CDATA[$F{pass}]]></groupExpression>
+		</group>
+		<group name="name">
+			<groupExpression><![CDATA[$F{name}]]></groupExpression>
+		</group>
+	</subDataset>
+	<queryString language="SQL">
+		<![CDATA[select * from user_info
+order by user_level]]>
+	</queryString>
+	<field name="id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="user_info"/>
+	</field>
+	<field name="pass" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pass"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="user_info"/>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="user_info"/>
+	</field>
+	<field name="user_level" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="user_level"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="user_info"/>
+	</field>
+	<variable name="Variable_1" class="java.lang.Integer" calculation="Count"/>
+	<group name="ユーザーレベル">
+		<groupExpression><![CDATA[$F{user_level}]]></groupExpression>
+		<groupHeader>
+			<band height="41"/>
+		</groupHeader>
+		<groupFooter>
+			<band height="67">
+				<textField>
+					<reportElement x="180" y="20" width="100" height="30" uuid="3095b22e-6160-4c9a-b00d-c4fd5455f2a8"/>
+					<textFieldExpression><![CDATA[$V{ユーザーレベル_COUNT}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="280" y="20" width="100" height="30" uuid="b6e0d96a-5701-4999-8d12-61c449ad95a7"/>
+					<text><![CDATA[人]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="92" y="17" width="78" height="30" uuid="ef1958eb-ce60-4ae2-b24b-6c5d041e1a06"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="�l�r ����" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{user_level}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="17" width="90" height="30" uuid="9ec30241-58b4-4352-8b82-8b604c58cf43"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="IPAゴシック" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ユーザーレベル]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="65" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="283" y="3" width="210" height="60" forecolor="#FFFFFF" backcolor="#B017CF" uuid="c8841525-f88b-41d6-8a29-00d09069975a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="25" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ユーザー情報]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="32" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Transparent" x="180" y="0" width="460" height="30" uuid="145711d7-8cba-4dcb-abcf-84f4711edb9a"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="185" y="0" width="100" height="30" uuid="c3435588-d0c3-4d2b-9b12-ca1359b32a89">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c9976bbb-661a-4807-86f1-c413cb6ca193"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="301" y="0" width="100" height="30" uuid="c7f7a089-b42e-49e7-92fc-fb3a72ec4731">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="171052b3-a61c-44d7-8dc6-d4d195200c1d"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PASSWORD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="0" width="171" height="30" uuid="525e012f-bd10-4317-8443-68ebcf4bddd1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2d57d055-51ae-4059-b055-aa7f8e657d8e"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NAME]]></text>
+			</staticText>
+			<line>
+				<reportElement x="290" y="0" width="1" height="31" uuid="07e044ef-e639-49fa-a3a4-b527023d33ec">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="411" y="0" width="1" height="31" uuid="74dd322b-53fc-43c1-9c2a-09c27bc388e4">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</line>
+		</band>
+	</columnHeader>
+	<pageFooter>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement x="611" y="6" width="100" height="30" uuid="5dd37d9b-25a6-401f-9971-94b152ef6e59"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="711" y="6" width="100" height="30" uuid="af1bf05c-64b5-40f8-9fd3-ee380a0d559b"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

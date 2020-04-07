@@ -1,0 +1,9 @@
+@charset "UTF-8";
+  .form_width {
+    display: inline-block;
+	  width: 6em;
+  }
+  .between_width{
+	display: inline-block;
+	width: 1em;
+}
